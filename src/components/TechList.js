@@ -2,22 +2,26 @@ import React, { Component } from 'react';
 
 class TechList extends Component {
   state = {
+    newTech: '',
     techs: [
       'Node.js',
       'ReactJS',
       'React Native'
     ]
   };
+
+  handleInputChange = e => {
+    console.log(e.target.value);
+  }
   
   render() {
-    console.log(this.state);
-
     return (
-      <ul>
-        <li>Node.js</li>
-        <li>ReactJS</li>
-        <li>React Native</li>
-      </ul>
+      <>
+        <ul>
+          {this.state.techs.map(tech => <li key={tech}>{tech}</li>)}
+        </ul>
+        <input type="text" onChange={this.handleInputChange} />
+      </>
     );
   }
 }
